@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "todc-bootstrap@3.4.0-3.4.1",
+      "destination": "wwwroot/lib/todc-bootstrap/"
+    },
+    {
+      "library": "twitter-bootstrap@4.3.1",
+      "destination": "wwwroot/twitter-bootstrap/"
+    }
+  ]
+}

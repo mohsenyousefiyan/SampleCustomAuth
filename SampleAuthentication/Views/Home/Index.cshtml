@@ -1,0 +1,60 @@
+﻿@model IEnumerable<System.Security.Claims.Claim>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <title>View UserClaimList</title>
+</head>
+<body>
+    <table class="table table-bordered table-responsive">
+        <tr>
+            <th>Subject</th>
+            <th>Issuer</th>
+            <th>Type</th>
+            <th>Value</th>
+        </tr>
+        @if (Model == null || Model.Count() == 0)
+        {
+            <tr><td colspan="4" class="text-center">No Claims</td></tr>
+        }
+        else
+        {
+            foreach (var item in Model.OrderBy(x => x.Type))
+            {
+                <tr>
+                    <td>
+                        @item.Subject
+                    </td>
+
+                    <td>
+                        @item.Issuer
+                    </td>
+
+                    <td>
+                        @item.Type
+                    </td>
+
+                    <td>
+                        @item.Value
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+
+    <a asp-action="ByMobile" asp-controller="Home">Policy By Mobile Claim</a>
+    <br />
+    <a asp-action="ByCustomMobile" asp-controller="Home">Policy By Custom Mobile Claim(09124441325)</a>
+    <br />
+    <a asp-action="ByRole" asp-controller="Home">Policy By Admin Role Claim</a>
+    <br />
+    <a asp-action="ByRoleMobile" asp-controller="Home">Policy By Role And Mobile Claim(09132754661)</a>
+
+</body>
+</html>
